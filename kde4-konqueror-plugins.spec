@@ -3,14 +3,16 @@
 Summary:	Konqueror plugins
 Summary(pl.UTF-8):	Wtyczki do Konquerora
 Name:		kde4-konqueror-plugins
-Version:	4.1.0
-Release:	2
+Version:	4.2.0
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/extragear/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	aac0727e541c0e53c0d821ea644d13fb
+# Source0-md5:	fb288a6726e0aca208470c3aa4b7a603
 URL:		http://www.kde.org/
 BuildRequires:	cmake
+BuildRequires:	kde4-kdebase-devel >= %{version}
+Requires:	tidy
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -55,17 +57,17 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/fsview
 %attr(755,root,root) %{_libdir}/kde4/akregatorkonqfeedicon.so
 %attr(755,root,root) %{_libdir}/kde4/autorefresh.so
-%attr(755,root,root) %{_libdir}/kde4/libbabelfishplugin.so
-%attr(755,root,root) %{_libdir}/kde4/libcrashesplugin.so
-%attr(755,root,root) %{_libdir}/kde4/libdirfilterplugin.so
-%attr(755,root,root) %{_libdir}/kde4/libdomtreeviewerplugin.so
-%attr(755,root,root) %{_libdir}/kde4/libfsviewpart.so
-%attr(755,root,root) %{_libdir}/kde4/libkhtmlsettingsplugin.so
-%attr(755,root,root) %{_libdir}/kde4/libkimgallery.so
-%attr(755,root,root) %{_libdir}/kde4/librellinksplugin.so
-%attr(755,root,root) %{_libdir}/kde4/libuachangerplugin.so
-%attr(755,root,root) %{_libdir}/kde4/libwebarchiverplugin.so
-%attr(755,root,root) %{_libdir}/kde4/mfkonqmficon.so
+%attr(755,root,root) %{_libdir}/kde4/adblock.so                                                                                                                                      
+%attr(755,root,root) %{_libdir}/kde4/babelfishplugin.so                                                                                                                              
+%attr(755,root,root) %{_libdir}/kde4/crashesplugin.so                                                                                                                                
+%attr(755,root,root) %{_libdir}/kde4/dirfilterplugin.so                                                                                                                              
+%attr(755,root,root) %{_libdir}/kde4/domtreeviewerplugin.so                                                                                                                          
+%attr(755,root,root) %{_libdir}/kde4/fsviewpart.so                                                                                                                                   
+%attr(755,root,root) %{_libdir}/kde4/khtmlsettingsplugin.so                                                                                                                          
+%attr(755,root,root) %{_libdir}/kde4/kimgallery.so                                                                                                                                   
+%attr(755,root,root) %{_libdir}/kde4/rellinksplugin.so                                                                                                                               
+%attr(755,root,root) %{_libdir}/kde4/uachangerplugin.so                                                                                                                              
+%attr(755,root,root) %{_libdir}/kde4/webarchiverplugin.so                                                                                                                            
 %attr(755,root,root) %{_libdir}/kde4/minitoolsplugin.so
 %attr(755,root,root) %{_libdir}/kde4/searchbarplugin.so
 %attr(755,root,root) %{_libdir}/kde4/validatorsplugin.so
@@ -81,9 +83,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/domtreeviewer/domtreeviewerui.rc
 %dir %{_datadir}/apps/fsview
 %{_datadir}/apps/fsview/fsview_part.rc
-%dir %{_datadir}/apps/imagerotation
-%{_datadir}/apps/imagerotation/exif.py
-%{_datadir}/apps/imagerotation/orient.py
 
 %{_datadir}/apps/khtml/kpartplugins/autorefresh.desktop
 %{_datadir}/apps/khtml/kpartplugins/autorefresh.rc
@@ -91,8 +90,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/khtml/kpartplugins/crashesplugin.rc
 %{_datadir}/apps/khtml/kpartplugins/khtmlsettingsplugin.desktop
 %{_datadir}/apps/khtml/kpartplugins/khtmlsettingsplugin.rc
-%{_datadir}/apps/khtml/kpartplugins/mf_konqmficon.desktop
-%{_datadir}/apps/khtml/kpartplugins/mf_konqmficon.rc
+%{_datadir}/apps/khtml/kpartplugins/akregator_konqfeedicon.desktop                                                                                             
+%{_datadir}/apps/khtml/kpartplugins/akregator_konqfeedicon.rc                                                                                                  
+%{_datadir}/apps/khtml/kpartplugins/plugin_adblock.desktop                                                                                                     
+%{_datadir}/apps/khtml/kpartplugins/plugin_adblock.rc                                                                                                          
 %{_datadir}/apps/khtml/kpartplugins/minitoolsplugin.desktop
 %{_datadir}/apps/khtml/kpartplugins/minitoolsplugin.rc
 %{_datadir}/apps/khtml/kpartplugins/plugin_babelfish.desktop
@@ -108,9 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/khtml/kpartplugins/uachangerplugin.desktop
 %{_datadir}/apps/khtml/kpartplugins/uachangerplugin.rc
 %{_datadir}/apps/konqueror/*
-%dir %{_datadir}/apps/microformat
-%dir %{_datadir}/apps/microformat/pics
-%{_datadir}/apps/microformat/pics/microformat.png
+%{_datadir}/config.kcfg/validators.kcfg 
 %dir %{_datadir}/apps/webkitpart
 %dir %{_datadir}/apps/webkitpart/kpartplugins
 %{_datadir}/apps/webkitpart/kpartplugins/autorefresh.desktop
@@ -130,6 +129,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/oxygen/*/actions/validators.*
 %{_iconsdir}/oxygen/*/actions/webarchiver.*
 %{_datadir}/kde4/services/ServiceMenus/imageconverter.desktop
-%{_datadir}/kde4/services/ServiceMenus/jpegorient.desktop
 %{_datadir}/kde4/services/fsview_part.desktop
 %{_datadir}/kde4/services/webarchivethumbnail.desktop
+/usr/share/apps/akregator/pics/feed.png                                                                                                                       
