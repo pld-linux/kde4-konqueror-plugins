@@ -4,7 +4,7 @@ Summary:	Konqueror plugins
 Summary(pl.UTF-8):	Wtyczki do Konquerora
 Name:		kde4-konqueror-plugins
 Version:	4.1.0
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/extragear/%{orgname}-%{version}.tar.bz2
