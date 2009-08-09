@@ -3,16 +3,17 @@
 Summary:	Konqueror plugins
 Summary(pl.UTF-8):	Wtyczki do Konquerora
 Name:		kde4-konqueror-plugins
-Version:	4.2.3
+Version:	4.3.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/extragear/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	4290fa1c92671031aa97c122b09d8c13
+# Source0-md5:	527d61a6774aee7c053c48b5842db4fb
 URL:		http://www.kde.org/
 BuildRequires:	cmake
 BuildRequires:	kde4-kdebase-devel >= %{version}
 #BuildRequires:	kde4-webkitkde-devel
+BuildRequires:	Qt3Support-devel
 Requires:	tidy
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
