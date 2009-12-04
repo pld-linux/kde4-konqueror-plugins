@@ -10,10 +10,15 @@ Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/extragear/%{orgname}-%{version}.tar.bz2
 # Source0-md5:	527d61a6774aee7c053c48b5842db4fb
 URL:		http://www.kde.org/
+BuildRequires:	Qt3Support-devel
+BuildRequires:	QtSvg-devel
+BuildRequires:	automoc4
 BuildRequires:	cmake
+BuildRequires:	gettext-devel
 BuildRequires:	kde4-kdebase-devel >= %{version}
 #BuildRequires:	kde4-webkitkde-devel
-BuildRequires:	Qt3Support-devel
+BuildRequires:	qt4-build
+BuildRequires:	qt4-qmake
 Requires:	tidy
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -60,17 +65,17 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/fsview
 %attr(755,root,root) %{_libdir}/kde4/akregatorkonqfeedicon.so
 %attr(755,root,root) %{_libdir}/kde4/autorefresh.so
-%attr(755,root,root) %{_libdir}/kde4/adblock.so                                                                                                                                      
-%attr(755,root,root) %{_libdir}/kde4/babelfishplugin.so                                                                                                                              
-%attr(755,root,root) %{_libdir}/kde4/crashesplugin.so                                                                                                                                
-%attr(755,root,root) %{_libdir}/kde4/dirfilterplugin.so                                                                                                                              
-%attr(755,root,root) %{_libdir}/kde4/domtreeviewerplugin.so                                                                                                                          
-%attr(755,root,root) %{_libdir}/kde4/fsviewpart.so                                                                                                                                   
-%attr(755,root,root) %{_libdir}/kde4/khtmlsettingsplugin.so                                                                                                                          
-%attr(755,root,root) %{_libdir}/kde4/kimgallery.so                                                                                                                                   
-%attr(755,root,root) %{_libdir}/kde4/rellinksplugin.so                                                                                                                               
-%attr(755,root,root) %{_libdir}/kde4/uachangerplugin.so                                                                                                                              
-%attr(755,root,root) %{_libdir}/kde4/webarchiverplugin.so                                                                                                                            
+%attr(755,root,root) %{_libdir}/kde4/adblock.so
+%attr(755,root,root) %{_libdir}/kde4/babelfishplugin.so
+%attr(755,root,root) %{_libdir}/kde4/crashesplugin.so
+%attr(755,root,root) %{_libdir}/kde4/dirfilterplugin.so
+%attr(755,root,root) %{_libdir}/kde4/domtreeviewerplugin.so
+%attr(755,root,root) %{_libdir}/kde4/fsviewpart.so
+%attr(755,root,root) %{_libdir}/kde4/khtmlsettingsplugin.so
+%attr(755,root,root) %{_libdir}/kde4/kimgallery.so
+%attr(755,root,root) %{_libdir}/kde4/rellinksplugin.so
+%attr(755,root,root) %{_libdir}/kde4/uachangerplugin.so
+%attr(755,root,root) %{_libdir}/kde4/webarchiverplugin.so
 %attr(755,root,root) %{_libdir}/kde4/minitoolsplugin.so
 %attr(755,root,root) %{_libdir}/kde4/searchbarplugin.so
 %attr(755,root,root) %{_libdir}/kde4/validatorsplugin.so
@@ -93,10 +98,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/khtml/kpartplugins/crashesplugin.rc
 %{_datadir}/apps/khtml/kpartplugins/khtmlsettingsplugin.desktop
 %{_datadir}/apps/khtml/kpartplugins/khtmlsettingsplugin.rc
-%{_datadir}/apps/khtml/kpartplugins/akregator_konqfeedicon.desktop                                                                                             
-%{_datadir}/apps/khtml/kpartplugins/akregator_konqfeedicon.rc                                                                                                  
-%{_datadir}/apps/khtml/kpartplugins/plugin_adblock.desktop                                                                                                     
-%{_datadir}/apps/khtml/kpartplugins/plugin_adblock.rc                                                                                                          
+%{_datadir}/apps/khtml/kpartplugins/akregator_konqfeedicon.desktop
+%{_datadir}/apps/khtml/kpartplugins/akregator_konqfeedicon.rc
+%{_datadir}/apps/khtml/kpartplugins/plugin_adblock.desktop
+%{_datadir}/apps/khtml/kpartplugins/plugin_adblock.rc
 %{_datadir}/apps/khtml/kpartplugins/minitoolsplugin.desktop
 %{_datadir}/apps/khtml/kpartplugins/minitoolsplugin.rc
 %{_datadir}/apps/khtml/kpartplugins/plugin_babelfish.desktop
@@ -112,7 +117,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/khtml/kpartplugins/uachangerplugin.desktop
 %{_datadir}/apps/khtml/kpartplugins/uachangerplugin.rc
 %{_datadir}/apps/konqueror/*
-%{_datadir}/config.kcfg/validators.kcfg 
+%{_datadir}/config.kcfg/validators.kcfg
 %dir %{_datadir}/apps/webkitpart
 %dir %{_datadir}/apps/webkitpart/kpartplugins
 %{_datadir}/apps/webkitpart/kpartplugins/autorefresh.desktop
@@ -134,4 +139,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/ServiceMenus/imageconverter.desktop
 %{_datadir}/kde4/services/fsview_part.desktop
 %{_datadir}/kde4/services/webarchivethumbnail.desktop
-/usr/share/apps/akregator/pics/feed.png                                                                                                                       
+%{_datadir}/apps/akregator/pics/feed.png
