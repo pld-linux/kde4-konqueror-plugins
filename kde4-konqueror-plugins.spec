@@ -3,12 +3,13 @@
 Summary:	Konqueror plugins
 Summary(pl.UTF-8):	Wtyczki do Konquerora
 Name:		kde4-konqueror-plugins
-Version:	4.3.0
+Version:	4.6.1
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/extragear/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	527d61a6774aee7c053c48b5842db4fb
+#Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/extragear/%{orgname}-%{version}.tar.bz2
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
+# Source0-md5:	38facbeb5627ff6affa0fa0d676d1d19
 URL:		http://www.kde.org/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtSvg-devel
@@ -52,7 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
         kde_htmldir=%{_kdedocdir}
 
-%find_lang konq-plugins --with-kde --all-name
+#% find_lang konq-plugins --with-kde --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -60,14 +61,15 @@ rm -rf $RPM_BUILD_ROOT
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files -f konq-plugins.lang
+#-f konq-plugins.lang
+%files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/fsview
 %attr(755,root,root) %{_libdir}/kde4/akregatorkonqfeedicon.so
 %attr(755,root,root) %{_libdir}/kde4/autorefresh.so
 %attr(755,root,root) %{_libdir}/kde4/adblock.so
 %attr(755,root,root) %{_libdir}/kde4/babelfishplugin.so
-%attr(755,root,root) %{_libdir}/kde4/crashesplugin.so
+#%attr(755,root,root) %{_libdir}/kde4/crashesplugin.so
 %attr(755,root,root) %{_libdir}/kde4/dirfilterplugin.so
 %attr(755,root,root) %{_libdir}/kde4/domtreeviewerplugin.so
 %attr(755,root,root) %{_libdir}/kde4/fsviewpart.so
@@ -94,8 +96,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_datadir}/apps/khtml/kpartplugins/autorefresh.desktop
 %{_datadir}/apps/khtml/kpartplugins/autorefresh.rc
-%{_datadir}/apps/khtml/kpartplugins/crashesplugin.desktop
-%{_datadir}/apps/khtml/kpartplugins/crashesplugin.rc
+#%{_datadir}/apps/khtml/kpartplugins/crashesplugin.desktop
+#%{_datadir}/apps/khtml/kpartplugins/crashesplugin.rc
 %{_datadir}/apps/khtml/kpartplugins/khtmlsettingsplugin.desktop
 %{_datadir}/apps/khtml/kpartplugins/khtmlsettingsplugin.rc
 %{_datadir}/apps/khtml/kpartplugins/akregator_konqfeedicon.desktop
@@ -118,16 +120,20 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/khtml/kpartplugins/uachangerplugin.rc
 %{_datadir}/apps/konqueror/*
 %{_datadir}/config.kcfg/validators.kcfg
-%dir %{_datadir}/apps/webkitpart
-%dir %{_datadir}/apps/webkitpart/kpartplugins
-%{_datadir}/apps/webkitpart/kpartplugins/autorefresh.desktop
-%{_datadir}/apps/webkitpart/kpartplugins/autorefresh.rc
-%{_datadir}/apps/webkitpart/kpartplugins/crashesplugin.desktop
-%{_datadir}/apps/webkitpart/kpartplugins/crashesplugin.rc
-%{_datadir}/apps/webkitpart/kpartplugins/plugin_validators.desktop
-%{_datadir}/apps/webkitpart/kpartplugins/plugin_validators.rc
-%{_datadir}/apps/webkitpart/kpartplugins/uachangerplugin.desktop
-%{_datadir}/apps/webkitpart/kpartplugins/uachangerplugin.rc
+%dir %{_datadir}/apps/kwebkitpart
+%dir %{_datadir}/apps/kwebkitpart/kpartplugins
+%{_datadir}/apps/kwebkitpart/kpartplugins/akregator_konqfeedicon.desktop
+%{_datadir}/apps/kwebkitpart/kpartplugins/akregator_konqfeedicon.rc
+%{_datadir}/apps/kwebkitpart/kpartplugins/autorefresh.desktop
+%{_datadir}/apps/kwebkitpart/kpartplugins/autorefresh.rc
+#%{_datadir}/apps/kwebkitpart/kpartplugins/crashesplugin.desktop
+#%{_datadir}/apps/kwebkitpart/kpartplugins/crashesplugin.rc
+%{_datadir}/apps/kwebkitpart/kpartplugins/plugin_babelfish.desktop
+%{_datadir}/apps/kwebkitpart/kpartplugins/plugin_babelfish.rc
+%{_datadir}/apps/kwebkitpart/kpartplugins/plugin_validators.desktop
+%{_datadir}/apps/kwebkitpart/kpartplugins/plugin_validators.rc
+%{_datadir}/apps/kwebkitpart/kpartplugins/uachangerplugin.desktop
+%{_datadir}/apps/kwebkitpart/kpartplugins/uachangerplugin.rc
 %{_datadir}/config/translaterc
 %{_iconsdir}/hicolor/*/apps/fsview.*
 %{_iconsdir}/oxygen/*/actions/babelfish.*
