@@ -15,7 +15,7 @@ BuildRequires:	Qt3Support-devel
 BuildRequires:	QtSvg-devel
 BuildRequires:	automoc4
 BuildRequires:	cmake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	kde4-kdebase-devel >= %{version}
 #BuildRequires:	kde4-webkitkde-devel
 BuildRequires:	qt4-build
